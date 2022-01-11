@@ -1,0 +1,82 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    position: relative;
+    font-size: 1.7rem;
+    --bg-color: hsl(282 90% 80%);
+    --text-color: hsl(282 90% 10%);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    --theme-bg: hsl(282 80% 70%);
+    --theme-txt: hsl(282 80% 30%);
+}
+body.night {
+    --bg-color: hsl(282 90% 10%);
+    --text-color: hsl(282 70% 85%);
+    --theme-bg: hsl(282 80% 30%);
+    --theme-txt: hsl(282 80% 70%);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.theme-container {
+    position: absolute;
+    background-color: var(--theme-bg);
+    width: 50px;
+    height: 10px;
+    border-radius: 10px;
+    top: 3rem;
+    right: 4rem;
+}
+.change-theme {
+    position: relative;
+    width: 280px;
+    bottom: 0.8rem;
+    left: 2rem;
+    cursor: pointer;
+}
+.change-theme.night {
+    background-color: hsl(282 80% 10%);
+    color: white;
+}
+.change-theme i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(1.5);
+    color: var(--theme-txt);
+}
+.fa-moon {
+    transition: all 300ms linear;
+}
+.fa-sun {
+    transition: all 300ms linear;
+}
+.change-theme .fa-moon {
+    opacity: 0;
+}
+.change-theme .fa-sun {
+    opacity: 1;
+}
+.change-theme.night .fa-sun {
+    opacity: 0;
+    left: 2rem;
+    right: unset;
+}
+.change-theme.night .fa-moon {
+    opacity: 1;
+    left: 2rem;
+    right: unset;
+}
+.container {
+    padding: 2rem;
+    margin: 0 auto;
+}
