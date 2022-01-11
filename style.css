@@ -136,3 +136,13 @@ body.night {
     border-color: hsl(288 80% 40%);
     border-width: 2px;
 }
+/* REASONS */
+#reasons-place{
+    list-style: none;
+    font-size: 2.5rem;
+    margin-top: 3.75rem;
+}
+#reasons-place li {
+    margin: 1.2rem 0;
+    opacity: .6;
+}
