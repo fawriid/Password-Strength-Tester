@@ -22,6 +22,8 @@ body {
     --text-color: hsl(282 90% 10%);
     --theme-bg: hsl(282 80% 70%);
     --theme-txt: hsl(282 80% 30%);
+    --strength-bar: hsl(282 80% 90%);
+    --strength-bar-after: hsl(282 80% 40%);
 }
 body.night {
     background-color: var(--bg-color);
@@ -30,6 +32,8 @@ body.night {
     --text-color: hsl(282 70% 85%);
     --theme-bg: hsl(282 80% 30%);
     --theme-txt: hsl(282 80% 70%);
+    --strength-bar: hsl(282 40% 50%);
+    --strength-bar-after: hsl(282 80% 80%);
 }
 /* CHANGE-THEME */
 .theme-container {
@@ -78,13 +82,12 @@ body.night {
 }
 .change-theme.night .fa-sun {
     opacity: 0;
-    left: 2rem;
-    right: unset;
+
+    transform: translateX(37px) scale(1.5);
 }
 .change-theme.night .fa-moon {
     opacity: 1;
-    left: 2rem;
-    right: unset;
+    transform: translateX(37px) scale(1.5);
 }
 /* CONTAINER */
 .container {
@@ -94,4 +97,42 @@ body.night {
 .content-conatiner {
     margin-top: 5rem;
     text-align: center;
+}
+/* STRENGTH BAR */
+.strength__bar {
+    position: relative;
+    height: 30px;
+    width: 350px;
+    border: 2px solid hsl(282 40% 50%);
+    border-radius: 10px;
+    background-color: var(--strength-bar);
+    margin: 3rem auto;
+    overflow: hidden;
+    --strength-number: unset;
+    transition: all 300ms linear;
+}
+.strength__bar::after {
+    content: "";
+    width: calc(1% * (var(--strength-number)));
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    left: 0;
+    background-color: var(--strength-bar-after);
+    transition: all 300ms linear;
+}
+
+/* PASSWORD INPUT */
+#password {
+    font-size: 2rem;
+    border: 1px solid hsl(288, 80%, 90%);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    background-color: hsl(288, 80%, 90%);
+    color: hsl(282 40% 30%);
+    outline: none;
+}
+#password:focus {
+    border-color: hsl(288 80% 40%);
+    border-width: 2px;
 }
