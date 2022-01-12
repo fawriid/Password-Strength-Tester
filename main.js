@@ -1,4 +1,11 @@
+
+const upperCaseLetter = "ABCDEFGHIJKLMNOPQRSTVXYZ";
+const lowerCaseLetter = "abcdefghijklmnopqrstvxyz";
+const numberLetter = "1234567890";
+const specialLetter = "!@#$%^&*()+";
+
 const change = document.querySelector(".change-theme");
+
 const body = document.querySelector("body");
 change.addEventListener("click", () => {
     change.classList.toggle("night");
@@ -9,8 +16,9 @@ const strength = document.getElementById("strength-bar");
 
 const passInput = document.getElementById("password");
 
-passInput.addEventListener("input", start);
 const reasons = document.getElementById("reasons-place");
+
+passInput.addEventListener("input", start);
 
 function start() {
     let score = 100;
@@ -82,4 +90,22 @@ function number(password) {
 }
 function special(password) {
     return characterType(password, /[^\sa-zA-Z0-9]/g, "special");
+}
+
+
+// generate random password
+
+function generatePass() {
+    const randomPass = [];
+
+    for (let i = 0; i < 3; i++) {
+        let gen = [];
+        gen.push(upperCaseLetter[Math.floor(Math.random() * upperCaseLetter.length)]);
+        gen.push(lowerCaseLetter[Math.floor(Math.random() * lowerCaseLetter.length)]);
+        gen.push(numberLetter[Math.floor(Math.random() * numberLetter.length)]);
+        gen.push(specialLetter[Math.floor(Math.random() * specialLetter.length)]);
+        randomPass.push(...gen);
+    }
+    passInput.value = randomPass.join("");
+    start();
 }
