@@ -36,7 +36,6 @@ function scoreUp(password) {
     weaknesses.push(number(password));
     weaknesses.push(special(password));
 
-    console.log(weaknesses);
     return weaknesses;
 }
 
@@ -58,7 +57,6 @@ function lengthCheck(value) {
 
 function characterType(password, regex, type) {
     const matches = password.match(regex) || [];
-    console.log(matches);
     if (matches.length === 0) {
         return {
             deduction: 20,
